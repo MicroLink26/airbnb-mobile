@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Ionicons, Entypo, AntDesign } from "@expo/vector-icons";
 import HomeScreen from "./containers/HomeScreen";
 import ProfileScreen from "./containers/ProfileScreen";
 import SignInScreen from "./containers/SignInScreen";
@@ -177,11 +177,7 @@ export default function App() {
                   options={{
                     tabBarLabel: "My profile",
                     tabBarIcon: ({ color, size }) => (
-                      <Ionicons
-                        name={"ios-options"}
-                        size={size}
-                        color={color}
-                      />
+                      <AntDesign name="user" size={size} color={color} />
                     ),
                   }}
                 >

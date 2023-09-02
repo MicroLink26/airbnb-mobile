@@ -1,4 +1,11 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
@@ -20,18 +27,9 @@ const Room = ({ room }) => {
   }
   return (
     <View style={styles.roomContainer}>
-      <Image
-        style={styles.images}
-        resizeMode="contain"
-        source={{
-          uri: room.photos[0].url,
-        }}
-      />
-
-      <View style={styles.absolute}>
+      <ImageBackground source={{ uri: room.photos[0].url }} style={styles.pict}>
         <Text style={styles.price}>{room.price} €</Text>
-      </View>
-
+      </ImageBackground>
       <View style={styles.flexRow}>
         <View style={styles.roomTxt}>
           <Text numberOfLines={1} style={styles.title}>
@@ -65,12 +63,7 @@ export default Room;
 const styles = StyleSheet.create({
   roomContainer: {
     padding: 20,
-    // borderBottomColor: "gray",
-    // borderBottomWidth: 1,
-
-    // alignItems: "center",
-
-    //justifyContent: "center",
+    gap: 10,
   },
 
   images: {
@@ -92,12 +85,11 @@ const styles = StyleSheet.create({
     //width: 200,
   },
   price: {
-    //marginTop: -60,
-    backgroundColor: "black",
-    //marginBottom: 20,
-    width: 80,
     color: "white",
-    padding: 10,
+    backgroundColor: "black",
+    marginBottom: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   absolute: {
     position: "absolute",
@@ -110,5 +102,11 @@ const styles = StyleSheet.create({
   starContainer: {
     color: "gray",
     paddingVertical: 20,
+  },
+  pict: {
+    width: "100%",
+    height: 200,
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
   },
 });
