@@ -1,4 +1,11 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -19,16 +26,10 @@ const Room = ({ imgUrl, title, price, stars, reviews, user, id }) => {
   return (
     <TouchableOpacity onPress={() => navigation.push("Room", { id })}>
       <View style={styles.roomContainer}>
-        <Image
-          style={styles.images}
-          resizeMode="contain"
-          source={{
-            uri: imgUrl,
-          }}
-        />
-        <View style={styles.absolute}>
+        <ImageBackground source={{ uri: imgUrl }} style={styles.pict}>
           <Text style={styles.price}>{price} €</Text>
-        </View>
+        </ImageBackground>
+
         <View style={styles.flexRow}>
           <View style={styles.roomTxt}>
             <Text numberOfLines={1} style={styles.title}>
@@ -58,10 +59,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderBottomColor: "gray",
     borderBottomWidth: 1,
-
-    // alignItems: "center",
-
-    //justifyContent: "center",
+    gap: 10,
   },
 
   images: {
@@ -83,12 +81,11 @@ const styles = StyleSheet.create({
     //width: 200,
   },
   price: {
-    //marginTop: -60,
-    backgroundColor: "black",
-    //marginBottom: 20,
-    width: 80,
     color: "white",
-    padding: 10,
+    backgroundColor: "black",
+    marginBottom: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   absolute: {
     position: "absolute",
@@ -101,5 +98,11 @@ const styles = StyleSheet.create({
   starContainer: {
     color: "gray",
     paddingVertical: 20,
+  },
+  pict: {
+    width: "100%",
+    height: 200,
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
   },
 });

@@ -51,8 +51,10 @@ export default function SignUpScreen({ setToken }) {
         { email, password, description, username }
       );
 
-      //console.log(response.data);
       const userToken = response.data.token;
+      const id = response.data.id;
+
+      setToken(userToken, id);
       setToken(userToken);
     } catch (error) {
       setErrorMessage(ERRORAPI);

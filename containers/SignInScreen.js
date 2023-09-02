@@ -31,7 +31,9 @@ export default function SignInScreen({ setToken }) {
       );
 
       const userToken = response.data.token;
-      setToken(userToken);
+      const id = response.data.id;
+
+      setToken(userToken, id);
     } catch (error) {
       setErrorMessage("You have entered an invalid username or password");
     }

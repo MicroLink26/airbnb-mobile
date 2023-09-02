@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Entypo } from "@expo/vector-icons";
 import HomeScreen from "./containers/HomeScreen";
 import ProfileScreen from "./containers/ProfileScreen";
 import SignInScreen from "./containers/SignInScreen";
@@ -12,6 +12,7 @@ import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
 import { FontAwesome5 } from "@expo/vector-icons";
 import RoomScreen from "./containers/RoomScreen";
+import AroundMe from "./containers/AroundMe";
 import { View, StyleSheet } from "react-native-web";
 import BackButton from "./components/BackButton";
 
@@ -21,14 +22,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [userToken, setUserToken] = useState(null);
-
-  const setToken = async (token) => {
+  const [userId, setUserId] = useState(null);
+  const setToken = async (token, id) => {
     if (token) {
       await AsyncStorage.setItem("userToken", token);
+      await AsyncStorage.setItem("userId", id);
     } else {
       await AsyncStorage.removeItem("userToken");
+      await AsyncStorage.removeItem("userId");
     }
-
+    setUserId(id);
     setUserToken(token);
   };
 
@@ -37,11 +40,11 @@ export default function App() {
     const bootstrapAsync = async () => {
       // We should also handle error for production apps
       const userToken = await AsyncStorage.getItem("userToken");
-
+      const userId = await AsyncStorage.getItem("userId");
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
       setUserToken(userToken);
-
+      setUserId(userId);
       setIsLoading(false);
     };
 
@@ -94,8 +97,9 @@ export default function App() {
                     <Stack.Navigator
                       screenOptions={{
                         headerLeft: (props) => <BackButton {...props} />,
-                        headerRight: () => null,
-                        headerBackTitle: () => null,
+                        headerBackVisible: false,
+                        // headerRight: () => null,
+                        // headerBackTitle: () => null,
                         headerTitleAlign: "center",
                         headerBackTitleVisible: false,
                         headerTitle: (props) => (
@@ -126,10 +130,52 @@ export default function App() {
                     </Stack.Navigator>
                   )}
                 </Tab.Screen>
+
+                <Tab.Screen
+                  name="TabMap"
+                  options={{
+                    tabBarLabel: "Around Me",
+                    tabBarIcon: ({ color, size }) => (
+                      <Entypo name="location-pin" size={size} color={color} />
+                    ),
+                  }}
+                >
+                  {() => (
+                    <Stack.Navigator
+                      screenOptions={{
+                        // headerLeft: (props) => <BackButton {...props} />,
+                        // headerRight: () => null,
+                        // headerBackTitle: () => null,
+                        headerTitleAlign: "center",
+                        headerBackTitleVisible: false,
+                        headerTitle: (props) => (
+                          <FontAwesome5
+                            name="airbnb"
+                            size={40}
+                            color="#EB5A62"
+                          />
+                        ),
+                        headerStyle: { backgroundColor: "white" },
+                        headerTitleStyle: { color: "white" },
+                      }}
+                    >
+                      <Stack.Screen name="AroundMe" component={AroundMe} />
+
+                      <Stack.Screen
+                        name="RoomMap"
+                        options={{
+                          title: "Room",
+                        }}
+                      >
+                        {(props) => <RoomScreen {...props} />}
+                      </Stack.Screen>
+                    </Stack.Navigator>
+                  )}
+                </Tab.Screen>
                 <Tab.Screen
                   name="TabSettings"
                   options={{
-                    tabBarLabel: "Settings",
+                    tabBarLabel: "My profile",
                     tabBarIcon: ({ color, size }) => (
                       <Ionicons
                         name={"ios-options"}
@@ -140,7 +186,38 @@ export default function App() {
                   }}
                 >
                   {() => (
-                    <Stack.Navigator>
+                    <Stack.Navigator
+                      screenOptions={{
+                        // headerLeft: (props) => <BackButton {...props} />,
+                        // headerRight: () => null,
+                        // headerBackTitle: () => null,
+                        headerTitleAlign: "center",
+                        headerBackTitleVisible: false,
+                        headerTitle: (props) => (
+                          <FontAwesome5
+                            name="airbnb"
+                            size={40}
+                            color="#EB5A62"
+                          />
+                        ),
+                        headerStyle: { backgroundColor: "white" },
+                        headerTitleStyle: { color: "white" },
+                      }}
+                    >
+                      <Stack.Screen
+                        name="Profile"
+                        options={{
+                          title: "My profile",
+                        }}
+                      >
+                        {(props) => (
+                          <ProfileScreen
+                            userId={userId}
+                            userToken={userToken}
+                            setToken={setToken}
+                          />
+                        )}
+                      </Stack.Screen>
                       <Stack.Screen
                         name="Settings"
                         options={{
