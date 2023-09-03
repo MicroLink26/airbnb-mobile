@@ -34,7 +34,6 @@ export default function ProfileScreen({ setToken, userToken, userId }) {
           }
         );
 
-        // console.log("data>>>", data);
         setUserInfos(data);
 
         if (data.photo) {
@@ -199,22 +198,25 @@ export default function ProfileScreen({ setToken, userToken, userId }) {
   ) : (
     <KeyboardAwareScrollView style={styles.container}>
       {/* -- Affichage de la photo s'il y en a une SINON affichage d'un icône */}
-      {imageUri ? (
-        <Image source={{ uri: imageUri }} style={styles.avatar} />
-      ) : (
-        <AntDesign name="user" size={40} color="black" />
-      )}
 
-      {/* -- Bouton pour ouvrir la caméra */}
-      <TouchableOpacity onPress={getPermissionAndTakePicture}>
-        <AntDesign name="camera" size={24} color="black" />
-      </TouchableOpacity>
+      <View style={styles.flexRow}>
+        {imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.avatar} />
+        ) : (
+          <AntDesign name="user" size={40} color="black" />
+        )}
+        <View style={styles.flexJustifyCenter}>
+          {/* -- Bouton pour ouvrir la caméra */}
+          <TouchableOpacity onPress={getPermissionAndTakePicture}>
+            <AntDesign name="camera" size={28} color="gray" />
+          </TouchableOpacity>
 
-      {/* -- Bouton pour ouvrir la gallerie photo */}
-      <TouchableOpacity onPress={getPermissionAndGetPicture}>
-        <MaterialIcons name="add-photo-alternate" size={24} color="black" />
-      </TouchableOpacity>
-
+          {/* -- Bouton pour ouvrir la gallerie photo */}
+          <TouchableOpacity onPress={getPermissionAndGetPicture}>
+            <MaterialIcons name="add-photo-alternate" size={28} color="gray" />
+          </TouchableOpacity>
+        </View>
+      </View>
       <TextInput
         value={userInfos.email}
         style={styles.input}
@@ -267,6 +269,11 @@ const styles = StyleSheet.create({
   container: {
     padding: 40,
     backgroundColor: "white",
+  },
+
+  flexRow: { flexDirection: "row", justifyContent: "center", gap: 20 },
+  flexJustifyCenter: {
+    justifyContent: "space-around",
   },
   input: {
     height: 44,

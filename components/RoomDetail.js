@@ -13,7 +13,7 @@ import MapView, { Marker } from "react-native-maps";
 const Room = ({ room }) => {
   const [lines, setLines] = useState(3);
   const navigation = useNavigation();
-  console.log(room.location);
+
   const starsList = [];
 
   for (let i = 1; i <= 5; i++) {
@@ -26,6 +26,7 @@ const Room = ({ room }) => {
         <FontAwesome key={i} name="star" size={10} color="gray" />
       );
   }
+
   return (
     <View style={styles.roomContainer}>
       <ImageBackground source={{ uri: room.photos[0].url }} style={styles.pict}>

@@ -49,7 +49,6 @@ const AroundMe = ({ navigation }) => {
             : `https://lereacteur-bootcamp-api.herokuapp.com/api/airbnb/rooms/`
         );
 
-        console.log("data>>>", data.length);
         setRoomsList(data);
         setIsLoading(false);
         if (data.length < 1) alert("No rooms around You!");
@@ -83,7 +82,7 @@ const AroundMe = ({ navigation }) => {
             }}
             onPress={() => {
               // -- Au press sur un pin on navigue vers l'écran RoomMap que l'on a ajouté dans l'onglet TabMap
-              navigation.navigate("RoomMap", { roomId: room._id });
+              navigation.navigate("RoomMap", { id: room._id });
             }}
           />
         );
