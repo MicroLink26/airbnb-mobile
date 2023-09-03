@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     borderColor: "#EB5A62",
     borderWidth: 1,
     padding: 8,
-    marginBottom: 10,
+    marginBottom: 40,
     verticalAlign: "top",
     width: "100%",
     marginVertical: 20,
