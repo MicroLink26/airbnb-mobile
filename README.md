@@ -33,27 +33,27 @@ More features will be added to the project in the future.
 <img
 		width="210"
 		alt="Capture 1"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/signin-screen.png">
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/signin-screen.png">
 <img
 		width="210"
 		alt="Capture 2"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/signup-screen.png">
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/signup-screen.png">
 <img
 		width="210"
 		alt="Capture 3"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/home-screen.png">
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/home-screen.png">
 <img
 		width="210"
 		alt="Capture 4"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/room-screen.png">
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/room-screen.png">
 <img
 		width="210"
-		alt="Capture 4"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/aroundme-screen.png">
+		alt="Capture 5"
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/aroundme-screen.png">
 <img
 		width="210"
-		alt="Capture 4"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/profile-screen.png">
+		alt="Capture 6"
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/profile-screen.png">
 
 ## Installation and usage
 
