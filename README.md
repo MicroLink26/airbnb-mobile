@@ -1,8 +1,8 @@
 <h1 align="center">
 <img
 		width="250"
-		alt="Tinder Clone - React Native"
-		src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/logo.png">
+		alt="Airbnb Clone - React Native"
+		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/logo.png">
 </h1>
 <h3 align="center">
 	Airbnb - React Native
@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-	<img src="https://github.com/MicroLink26/airbnb-mobile/blob/master/preview/airbnbclone-preview.png" width="300">
+	<img src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/airbnb-preview.png" width="300">
 </p>
 
 ## Overview
