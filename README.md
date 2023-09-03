@@ -28,6 +28,7 @@ More features will be added to the project in the future.
 
 ## Screenshots
 
+<p align="center">
 <img
 		width="210"
 		alt="Capture 1"
@@ -52,7 +53,7 @@ More features will be added to the project in the future.
 		width="210"
 		alt="Capture 6"
 		src="https://github.com/MicroLink26/airbnb-mobile/blob/main/preview/profile-screen.png">
-
+</p>
 ## Installation and usage
 
 Be sure, you have installed all dependencies and applications to run React Native project on your computer : [Getting Started with React Native](https://facebook.github.io/react-native/docs/getting-started).
