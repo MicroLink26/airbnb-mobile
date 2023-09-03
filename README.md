@@ -20,7 +20,7 @@
 
 ## Overview
 
-⚠️ **This repository is not maintain anymore. I've made another repository of this project on Expo (and with Typescript) : https://github.com/stevenpersia/tinder-expo.**
+⚠️ **This repository is not maintain anymore.**
 
 **Perfect to start an Airbnb Clone app.** 6 screens are availables : Sign in, Sign up, list of all rooms, detail of a room, map and Profile.
 
