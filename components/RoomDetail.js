@@ -16,7 +16,7 @@ const Room = ({ room }) => {
   const starsList = [];
 
   for (let i = 1; i <= 5; i++) {
-    if (i <= room.ratingValue)
+    if (i <= room.ratingValue || 0)
       starsList.push(
         <FontAwesome key={i} name="star" size={10} color="gold" />
       );

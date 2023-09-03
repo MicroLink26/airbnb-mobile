@@ -234,6 +234,8 @@ export default function ProfileScreen({ setToken, userToken, userId }) {
       <TextInput
         value={userInfos.description}
         style={styles.textArea}
+        multiline
+        numberOfLines={4}
         onChangeText={(text) => {
           changeUserInfos(text, "description");
         }}
@@ -243,13 +245,14 @@ export default function ProfileScreen({ setToken, userToken, userId }) {
       {updating ? (
         <ActivityIndicator />
       ) : (
-        <TouchableOpacity onPress={handleUpdate}>
+        <TouchableOpacity style={styles.button} onPress={handleUpdate}>
           <Text>Update</Text>
         </TouchableOpacity>
       )}
 
       {/* -- Bouton de déconnexion de l'utilisateur */}
       <TouchableOpacity
+        style={styles.button}
         onPress={() => {
           setToken(null, null);
         }}
@@ -263,21 +266,38 @@ export default function ProfileScreen({ setToken, userToken, userId }) {
 const styles = StyleSheet.create({
   container: {
     padding: 40,
+    backgroundColor: "white",
   },
   input: {
-    borderBottomColor: "red",
+    height: 44,
+    borderColor: "#EB5A62",
     borderBottomWidth: 1,
     width: "100%",
     marginVertical: 20,
   },
   textArea: {
-    borderColor: "red",
+    height: 100,
+    borderColor: "#EB5A62",
     borderWidth: 1,
+    padding: 8,
+    marginBottom: 10,
+    verticalAlign: "top",
     width: "100%",
     marginVertical: 20,
   },
   avatar: {
     width: 150,
     height: 150,
+  },
+  button: {
+    borderColor: "#EB5A62",
+    borderRadius: 40,
+    borderWidth: 2,
+    width: 200,
+    padding: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    marginVertical: 20,
   },
 });

@@ -57,8 +57,8 @@ export default Room;
 const styles = StyleSheet.create({
   roomContainer: {
     padding: 20,
-    borderBottomColor: "gray",
-    borderBottomWidth: 1,
+    borderBottomColor: "#C0C0C0",
+    borderBottomWidth: 0.3,
     gap: 10,
   },
 
