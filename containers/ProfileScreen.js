@@ -289,6 +289,7 @@ const styles = StyleSheet.create({
     padding: 8,
     marginBottom: 40,
     verticalAlign: "top",
+    textAlignVertical: "top",
     width: "100%",
     marginVertical: 20,
   },

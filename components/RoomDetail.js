@@ -61,8 +61,8 @@ const Room = ({ room }) => {
         initialRegion={{
           latitude: room.location[1],
           longitude: room.location[0],
-          latitudeDelta: 0.2,
-          longitudeDelta: 0.2,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
         }}
         showsUserLocation={true}
       >
@@ -74,7 +74,6 @@ const Room = ({ room }) => {
           }}
         />
       </MapView>
-      <Text>ici {room.location[1]}</Text>
     </View>
   );
 };
