@@ -74,7 +74,6 @@ const AroundMe = ({ navigation }) => {
       showsUserLocation={true}
     >
       {roomsList.map((room) => {
-        // console.log("room>>", room.location);
         return (
           <Marker
             key={room._id}
@@ -83,7 +82,7 @@ const AroundMe = ({ navigation }) => {
               longitude: room.location[0],
             }}
             onPress={() => {
-              // -- Au peress sur un pin on navigue vers l'écran RoomMap que l'on a ajouté dans l'onglet TabMap
+              // -- Au press sur un pin on navigue vers l'écran RoomMap que l'on a ajouté dans l'onglet TabMap
               navigation.navigate("RoomMap", { roomId: room._id });
             }}
           />

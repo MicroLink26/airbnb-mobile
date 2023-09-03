@@ -9,10 +9,11 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+import MapView, { Marker } from "react-native-maps";
 const Room = ({ room }) => {
   const [lines, setLines] = useState(3);
   const navigation = useNavigation();
-
+  console.log(room.location);
   const starsList = [];
 
   for (let i = 1; i <= 5; i++) {
@@ -54,6 +55,25 @@ const Room = ({ room }) => {
       >
         <Text numberOfLines={lines}>{room.description}</Text>
       </TouchableOpacity>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: room.location[1],
+          longitude: room.location[0],
+          latitudeDelta: 0.2,
+          longitudeDelta: 0.2,
+        }}
+        showsUserLocation={true}
+      >
+        <Marker
+          key={room._id}
+          coordinate={{
+            latitude: room.location[1],
+            longitude: room.location[0],
+          }}
+        />
+      </MapView>
+      <Text>ici {room.location[1]}</Text>
     </View>
   );
 };
@@ -108,5 +128,9 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: "flex-end",
     alignItems: "flex-start",
+  },
+  map: {
+    height: 200,
+    width: "100%",
   },
 });
